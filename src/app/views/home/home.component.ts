@@ -34,11 +34,7 @@ export class HomeComponent implements OnInit {
       subscribe(data => {
         if (data) {
           const _obj = Object.assign(data);
-          if ('Angular' in _obj.keys()) {
-            this.AngularDocs = _obj['Angular']; // Object.assign(data);
-          } else {
-            this.AngularDocs = [];
-          }
+          this.AngularDocs = _obj['Angular']; // Object.assign(data);
           /*
           this.AngularDocs.forEach(element => {
             console.log('***', element);
