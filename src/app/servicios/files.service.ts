@@ -14,11 +14,18 @@ import { Observable } from 'rxjs';
 export class FilesService {
 
   private collection$: AngularFirestoreCollection<any>;
+
   public collectionObserver: Observable<Array<any>>;
 
   constructor(public db: AngularFirestore) {
     this.collection$ = this.db.collection('Guias');
     this.collectionObserver = this.collection$.valueChanges();
+  }
+
+  getDocument(lenguaje: string) {
+    const document: AngularFirestoreDocument<any> = this.collection$.doc(lenguaje);
+    // this.document$: Observable<any> = document.valueChanges();
+    return document.valueChanges();
   }
 
 }

@@ -1,4 +1,14 @@
 <p>
   home works!
 </p>
+
+<div *ngFor='let id of AngularDocs'>
+  <h6>{{id.Titulo}}</h6>
+  <p>{{id.pdf}}</p>
+</div>
+
+<h1>Guias</h1>
 <pre>{{ ColeccionLenguajes | json }}</pre>
+<h2>Angular</h2>
+<pre>{{ AngularDocs | json }}</pre>
+
