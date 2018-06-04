@@ -3,14 +3,26 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { environment } from '../environments/environment';
+export const firebaseConfig = environment.config;
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+import { FilesService } from './servicios/files.service';
+import { HomeComponent } from './views/home/home.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [FilesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
